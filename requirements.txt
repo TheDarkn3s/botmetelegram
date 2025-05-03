@@ -1,4 +1,6 @@
 pandas
 gspread
 oauth2client
+urllib3==1.26.16
+six
 python-telegram-bot==13.15
