@@ -13,6 +13,7 @@ CSV_PATH = 'subscriber-list.csv'
 MAPPING_SHEET_NAME = 'Mapping'  # Nombre de la pestaña que contiene NOMBRE EN TELEGRAM y NOMBRE EN TWITCH
 
 # Inicializar bot de Telegram
+print(f"TOKEN CARGADO: {token!R}")
 bot = Bot(token=TOKEN)
 
 # Autenticación Google Sheets
