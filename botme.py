@@ -5,7 +5,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 # CONFIGURACIÓN
-TOKEN = 'TU_TOKEN_AQUÍ'
+TOKEN = '8141878664:AAGMP787xZnUh4868g5afMH6plZQHvbqt74'
 CHAT_ID = '-1001204584896'
 SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1myvGba5Kk75W3ZNRv2cvmSrhLfuwi6jSFsVvN6aHOcI'
 CREDENTIALS_PATH = 'credenciales.json'
