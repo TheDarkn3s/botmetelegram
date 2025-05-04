@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime, timedelta, timezone
 from telegram import Bot
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 
 # ── CONFIGURACIÓN DESDE VARIABLES DE ENTORNO ─────────────────────────────────
 # Token de Telegram
@@ -43,12 +43,12 @@ except Exception as e:
 # Bot de Telegram
 bot = Bot(token=TOKEN)
 
-# Autenticación Google Sheets
+# Autenticación Google Sheets con google.oauth2
 scope = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
-creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
 client = gspread.authorize(creds)
 ss = client.open_by_url(SPREADSHEET_URL)
 print("✅ Autenticación Google OK")
