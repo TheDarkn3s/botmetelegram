@@ -50,7 +50,17 @@ scope = [
 ]
 creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
 client = gspread.authorize(creds)
-ss = client.open_by_url(SPREADSHEET_URL)
+# Abrir el spreadsheet extrayendo el ID de la URL
+import re
+match = re.search(r"/spreadsheets/d/([a-zA-Z0-9_-]+)", SPREADSHEET_URL)
+if not match:
+    raise RuntimeError(f"❌ URL de hoja inválida: {SPREADSHEET_URL}")
+sheet_id = match.group(1)
+try:
+    ss = client.open_by_key(sheet_id)
+    print(f"✅ Spreadsheet abierto por ID: {sheet_id}")
+except Exception as e:
+    raise RuntimeError(f"❌ Error abriendo el Spreadsheet con ID {sheet_id}: {e}")
 print("✅ Autenticación Google OK")
 
 # ── CARGAR Y VALIDAR MAPPING ──────────────────────────────────────────────────
