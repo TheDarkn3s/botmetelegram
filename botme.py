@@ -45,7 +45,7 @@ bot = Bot(token=TOKEN)
 
 # Autenticación Google Sheets con google.oauth2
 scope = [
-    "https://spreadsheets.google.com/feeds",
+    "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
 ]
 creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
