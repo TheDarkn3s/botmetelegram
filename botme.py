@@ -34,7 +34,9 @@ if not CREDENTIALS_B64:
 
 # ── DECODIFICAR Y PARSEAR CREDENCIALES ────────────────────────────────────────
 try:
-    raw_json = base64.b64decode(CREDENTIALS_B64)
+    # Limpiar posibles saltos de línea y espacios en la variable
+clean_b64 = ''.join(CREDENTIALS_B64.split())
+raw_json = base64.b64decode(clean_b64)
     creds_dict = json.loads(raw_json)
 except Exception as e:
     raise RuntimeError(f"❌ Error parseando credenciales Base64: {e}")
